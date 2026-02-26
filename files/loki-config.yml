@@ -54,15 +54,15 @@ ingester:
 
 limits_config:
   volume_enabled: true
-  retention_period: 168h
+  retention_period: ${LOKI_RETENTION_PERIOD:-168h}
   max_streams_per_user: 20000
   max_global_streams_per_user: 20000
   max_query_series: 15000
   max_query_length: 360h
   reject_old_samples: true
   reject_old_samples_max_age: 168h
-  ingestion_rate_mb: 25
-  ingestion_burst_size_mb: 50
+  ingestion_rate_mb: ${LOKI_INGESTION_RATE_MB:-25}
+  ingestion_burst_size_mb: ${LOKI_INGESTION_BURST_SIZE_MB:-50}
   split_queries_by_interval: 24h
 
 compactor:
