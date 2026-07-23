@@ -42,7 +42,7 @@ ingester:
 
   chunk_idle_period: 2m
   chunk_retain_period: 1m
-  max_chunk_age: 15m
+  max_chunk_age: ${LOKI_MAX_CHUNK_AGE:-2h}
   chunk_encoding: snappy
   chunk_target_size: 1572864
   wal:
@@ -61,8 +61,9 @@ limits_config:
   max_query_length: 360h
   reject_old_samples: true
   reject_old_samples_max_age: 168h
+  creation_grace_period: ${LOKI_CREATION_GRACE_PERIOD:-20m}
   ingestion_rate_mb: ${LOKI_INGESTION_RATE_MB:-25}
-  ingestion_burst_size_mb: ${LOKI_INGESTION_BURST_SIZE_MB:-50}
+  ingestion_burst_size_mb: ${LOKI_INGESTION_BURST_SIZE_MB:-75}
   split_queries_by_interval: 24h
 
 compactor:
