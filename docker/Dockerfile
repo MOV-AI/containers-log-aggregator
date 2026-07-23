@@ -1,5 +1,5 @@
 # Build stage: Get busybox
-FROM busybox:1.37.0 AS busybox_builder
+FROM busybox:1.38.0 AS busybox_builder
 
 # Main image
 FROM grafana/loki:3.6.7 AS base
